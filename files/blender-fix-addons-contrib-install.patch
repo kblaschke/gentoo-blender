@@ -1,0 +1,18 @@
+diff -ur a/source/creator/CMakeLists.txt b/source/creator/CMakeLists.txt
+--- a/source/creator/CMakeLists.txt	2019-08-23 20:06:41.673170183 +0200
++++ b/source/creator/CMakeLists.txt	2019-08-23 20:07:34.954659646 +0200
+@@ -354,13 +354,7 @@
+ if(WITH_PYTHON)
+   # install(CODE "message(\"copying blender scripts...\")")
+ 
+-  # exclude addons_contrib if release
+-  if("${BLENDER_VERSION_CYCLE}" STREQUAL "release" OR
+-     "${BLENDER_VERSION_CYCLE}" STREQUAL "rc")
+-    set(ADDON_EXCLUDE_CONDITIONAL "addons_contrib/*")
+-  else()
+-    set(ADDON_EXCLUDE_CONDITIONAL "_addons_contrib/*")  # dummy, wont do anything
+-  endif()
++  set(ADDON_EXCLUDE_CONDITIONAL "_addons_contrib/*")  # dummy, wont do anything
+ 
+   # do not install freestyle dir if disabled
+   if(NOT WITH_FREESTYLE)
